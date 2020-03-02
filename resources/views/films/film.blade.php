@@ -8,12 +8,17 @@
                     <div class="card-header">Films</div>
                     <div class="card-body">
 
+                        <div>
                         @foreach ($films as $film)
-                           <div> <H1 ><a href="{{url('film/'.$film->id)}}">{{ $film->title  }}</a></H1>
+
+                            <H1 ><a href="{{url('film/'.$film->id)}}">{{ $film->title  }}</a></H1>
                                <a>Category: {{$film->categories->first()->title}}</a>
                                <p>{{$film->subtitle}}</p>
-                           </div><br>
+
+                            <hr>
+
                         @endforeach
+                        </div>
                     </div>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Film;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
@@ -24,8 +25,10 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        $user = User::all();
+
         $film = Film::all();
-        return view('films.favorite', ['films' => $film]);
+
+        $favorite = DB::table('user_favorite_film')->get();
+        return view('films.favorite', ['films' => $film], ['favorites' => $favorite]);
     }
 }
