@@ -61,6 +61,9 @@
                                     <a class="dropdown-item" href="{{url('films/')}}">
                                         {{ __('Films') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{url('favorite/')}}">
+                                        {{ __('My favorite films') }}
+                                    </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
