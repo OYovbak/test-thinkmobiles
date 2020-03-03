@@ -4,7 +4,15 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header"><strong>{{ $film->categories->first()->title  }}</strong>
+                    <div class="card-header"><strong>
+                            @foreach(\Illuminate\Support\Facades\DB::table('category_film')->get() as $categ)
+                                @foreach($category as $cat)
+                                    @if($categ->film_id == $film->id && $categ->category_id == $cat->id)
+                                        <a href="{{url('/films/category/'.$cat->id)}}">{{ $cat->title  }}|</a>
+                                        @endif
+                                    @endforeach
+                        @endforeach
+                        </strong>
                     </div>
                     <div class="card-body">
                         <h1>{{ $film->title  }}</h1>

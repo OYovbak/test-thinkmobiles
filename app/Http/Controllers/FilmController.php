@@ -32,7 +32,8 @@ class FilmController extends Controller
      */
     public function show($id){
        $film = Film::find($id);
-       return view('films.show', ['film' => $film]);
+       $cat = Category::all();
+       return view('films.show', ['film' => $film], ['category' => $cat]);
     }
 
 

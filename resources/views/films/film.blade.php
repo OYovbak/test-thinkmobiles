@@ -46,7 +46,7 @@
                                <a>Category:  @foreach(\Illuminate\Support\Facades\DB::table('category_film')->get() as $categ)
                                        @foreach($category as $cat)
                                        @if($categ->film_id == $film->id && $categ->category_id == $cat->id)
-                                               <a href="{{url('/films/category/'.$cat->id)}}">  {{$cat->title}} </a>
+                                               <a href="{{url('/films/category/'.$cat->id)}}">  {{$cat->title}}|</a>
                             @endif
                            @endforeach
                             @endforeach</a>
