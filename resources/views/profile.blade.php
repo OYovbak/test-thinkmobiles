@@ -53,7 +53,7 @@
                             <label for="phone_number" class="col-md-4 col-form-label text-md-right">Phone number</label>
 
                             <div class="col-md-6">
-                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" value="{{$user->phone_number}}" name="phone_number">
+                                <input id="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" value="{{$user->phone_number}}" minlength="10" name="phone_number">
 
                                 @error('phone_number')
                                 <span class="invalid-feedback" role="alert">
@@ -82,7 +82,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">New E-mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" name="email">
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">

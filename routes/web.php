@@ -20,6 +20,7 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/favorite', 'FavoriteController@index')->name('films.favorite');
 Route::get('/films', 'FilmController@index')->name('films.film');
+Route::get('/films/category/{id}', 'CategoryController@showCat')->name('films.cat');
 Route::get('/film/{id}', 'FilmController@show')->name('films.show');
 Route::get('/film/add-to-favorite/{id}', 'FilmController@addToFavorite')->name('films.successful');
 Route::get('/film/delete-from-favorite/{id}', 'FilmController@deleteFromFavorite')->name('films.delete');

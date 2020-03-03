@@ -27,7 +27,6 @@ class ProfileController extends Controller
         $user = User::find(Auth::user()->id);
         $validator = Validator::make($request->all(), [
             'name' => ['max:255'],
-            'phone_number' =>['nullable','min:10', 'max:10'],
             'email' => ['nullable', 'email', 'max:255', 'unique:users'],
             'password' => ['nullable', 'min:8', 'confirmed'],
         ]);
@@ -48,8 +47,9 @@ class ProfileController extends Controller
         }
         if ($request->birthday &&  $request->birthday != $user->birthday) {
         $user->birthday = $request->birthday;
+            $user->save();
         }
-        $user->save();
+       // $user->save();
         return back();
     }
 

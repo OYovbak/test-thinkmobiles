@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Category;
+use App\Film;
 
 class CategoryController extends Controller
 {
@@ -19,5 +20,11 @@ class CategoryController extends Controller
         return view('category.list',$data);
     }
 
+    public function showCat($id){
+        $category = Category::find($id);
+        $film = Film::all();
+        return view('films.cat', ['category' => $category], ['films' => $film]);
+
+    }
 
 }

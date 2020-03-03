@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Film;
 use Illuminate\Http\Request;
 
@@ -21,7 +22,8 @@ class FilmController extends Controller
     public function index()
     {
         $film = Film::all();
-        return view('films.film', ['films' => $film]);
+        $category = Category::all();
+        return view('films.film', ['films' => $film], ['category' => $category]);
     }
 
     /**
