@@ -54,14 +54,13 @@ class FilmController extends Controller
     public function addToFavorite($id){
         $film = Film::find($id);
         $film->favorites()->attach(\Illuminate\Support\Facades\Auth::user()->id);
-        return view('films.successful', ['film' => $film]);
+        return back();
 
     }
     public function deleteFromFavorite($id){
         $film = Film::find($id);
         $film->favorites()->detach(\Illuminate\Support\Facades\Auth::user()->id);
-        return view('films.delete', ['film' => $film]);
-
+        return back();
     }
 
 

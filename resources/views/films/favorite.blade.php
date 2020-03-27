@@ -34,6 +34,7 @@
                     @foreach(\App\Category::all() as $cat)
                         <a href="{{url('/films/category/'.$cat->id)}}">{{$cat->title}}</a>
                     @endforeach
+                        <a href="{{url('/films')}}">Back to all films</a>
                 </div>
                 <div class="card">
                     <div class="card-header">My favorite films</div>
@@ -55,7 +56,10 @@
                                     @endforeach
                                 </a>
                                 <p>{{$film->subtitle}}</p>
-                                <a href="{{url('/film/delete-from-favorite/'.$film->id)}}"><button class="btn btn-dark btn-sm">Delete from favorites</button></a>
+                                <form action="/delete-film-to-favorite/{{$film->id}}" method="POST">
+                                    @csrf
+                                    <button class="btn btn-dark btn-sm" type="submit">Delete from favorite</button>
+                                </form>
                                 <hr>
                             </div>
 
@@ -69,5 +73,5 @@
                 </div>
             </div>
         </div>
-    </div>
+
 @endsection

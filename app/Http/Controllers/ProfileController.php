@@ -47,9 +47,8 @@ class ProfileController extends Controller
         }
         if ($request->birthday &&  $request->birthday != $user->birthday) {
         $user->birthday = $request->birthday;
-            $user->save();
         }
-       // $user->save();
+       $user->save();
         return back();
     }
 
